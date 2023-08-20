@@ -31,7 +31,7 @@ $(document).ready(async function () {
         .then((res) => res.json())
         .then((data) => devInfo = data)
     try {
-        await fetch('/./wwroot/json/list.json')
+        await fetch('/./wwwroot/json/list.json')
             .then(res => res.json())
             .then((data) => { if (data) listJson = data })
     } catch (error) { }
@@ -172,7 +172,7 @@ function populateProducts({ users }) {
                         const addDiv = (pn, i, d) => {
                             return `
                                         <div class="carousel-item${count2 == 0 ? " active" : ""}" prod-name="${pn}" prod-desc="${d}">
-                                            <img src="./wwroot/img/products/${i}" class="d-block" alt="Image">
+                                            <img src="./wwwroot/img/products/${i}" class="d-block" alt="Image">
                                         </div>
                                         `
                         }
@@ -208,7 +208,7 @@ function populateProducts({ users }) {
         count++
     }
     $("img").unbind().on('error', function (e) {
-        e.target.src = "./wwroot/img/img-not-found.png"
+        e.target.src = "./wwwroot/img/img-not-found.png"
         $(e.target).css('opacity', 0)
         $(e.target).parent().addClass("img-not-found")
     })
@@ -274,7 +274,7 @@ function populateProducts({ users }) {
 //         arr.forEach((item, idx) => {
 //             $('#carousel .carousel-inner').append(`
 //             <div class="carousel-item${idx == 0 ? ' active' : ''}" st-star st="${splitToTwo(item.user, "-")}">
-//                 <img src="./wwroot/img/products/${item.img}" class="d-block" alt="Image">
+//                 <img src="./wwwroot/img/products/${item.img}" class="d-block" alt="Image">
 //             </div>
 //         `)
 //         })
@@ -300,7 +300,7 @@ function populateCarousel({ users }) {
             $('#mainSlides').append(`
             <div>
                 <div class="slide" st-star st="${splitToTwo(item.user, "-")}">
-                    <div class="slide-img" style="background-image: url('./wwroot/img/products/${item.img}'), url('./wwroot/img/img-not-found.png');"><a>${item.product_name}</a><a class="star-owner">${item.user}</a></div>
+                    <div class="slide-img" style="background-image: url('./wwwroot/img/products/${item.img}'), url('./wwwroot/img/img-not-found.png');"><a>${item.product_name}</a><a class="star-owner">${item.user}</a></div>
                 </div>
             </div>
         `)
@@ -311,7 +311,7 @@ function populateCarousel({ users }) {
             $('#mainSlides').append(`
                 <div>
                     <div class="slide">
-                        <div class="slide-img" style="background-image: url('./wwroot/img/carousel-${i}.jpg'), url('./wwroot/img/img-not-found.png');"><a>Ilustração ${i}</a></div>
+                        <div class="slide-img" style="background-image: url('./wwwroot/img/carousel-${i}.jpg'), url('./wwwroot/img/img-not-found.png');"><a>Ilustração ${i}</a></div>
                     </div>
                 </div>
             `)
@@ -320,7 +320,7 @@ function populateCarousel({ users }) {
     var s = document.createElement('script');
     var s2 = document.createElement('script');
     s.src = 'https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js';
-    s2.src = './wwroot/js/slider.js';
+    s2.src = './wwwroot/js/slider.js';
     s.defer = true
     s2.defer = true
     document.body.appendChild(s);
