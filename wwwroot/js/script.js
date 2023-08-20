@@ -1,4 +1,4 @@
-let devInfo
+﻿let devInfo
 let listJson
 let defaultTheme = 'dark'
 let theme
@@ -31,7 +31,7 @@ $(document).ready(async function () {
         .then((res) => res.json())
         .then((data) => devInfo = data)
     try {
-        await fetch('/./wwwroot/json/list.json')
+        await fetch('./wwwroot/json/list.json')
             .then(res => res.json())
             .then((data) => { if (data) listJson = data })
     } catch (error) { }
