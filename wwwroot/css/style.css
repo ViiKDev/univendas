@@ -17,6 +17,7 @@
     --socials-facebook: rgb(110, 110, 255);
     --socials-instagram: rgb(176, 85, 199);
     --socials-twitter: rgb(79, 238, 238);
+    --socials-github: rgb(145, 68, 218);
 }
 
 * {
@@ -171,8 +172,8 @@ section img {
 .sect-description {
     display: flex;
     flex-direction: column;
-    width: 50%;
-    height: 60%;
+    width: 60%;
+    height: 70%;
     justify-content: space-between;
 }
 
@@ -414,7 +415,8 @@ nav form {
 nav span {
     color: var(--navbar-text-color);
     opacity: .5;
-    margin-right: 100px;
+    margin-right: 20px;
+    max-width: 500px;
 }
 
 #carousel {
@@ -547,6 +549,10 @@ a:hover i.fa-whatsapp {
     color: var(--socials-twitter);
 }
 
+.socials a:hover i.fa-github {
+    color: var(--socials-github);
+}
+
 .back-to-top {
     position: fixed;
     width: 40px;
@@ -595,15 +601,15 @@ p.animate {
         blink-caret .55s step-end 7 forwards;
 }
 
-.whatsapp-redir>i {
+.order>i {
     transition: all .3s ease;
 }
 
-.whatsapp-redir.animate {
+.order.animate {
     animation: blink-button 2s 2;
 }
 
-.whatsapp-redir.animate>i {
+.order.animate>i {
     animation: blink-icon 2s 2;
 }
 
@@ -629,6 +635,114 @@ p.animate {
 
     nav span {
         display: none;
+    }
+}
+
+@media (max-width:800px) {
+    .leaf-container {
+        max-width: 250px;
+    }
+
+    .footer-bottom {
+        padding: 15px;
+    }
+
+    p.animate {
+        font-size: 10px;
+    }
+
+    .footer {
+        padding-top: 10px;
+    }
+
+    .footer h3 {
+        font-size: 1.4rem;
+    }
+
+    .socials {
+        margin: 1rem 0 1rem 0;
+    }
+
+    .footer-bottom p {
+        font-size: 10px;
+    }
+
+    .sect-description {
+        width: 70%;
+        height: 80%;
+    }
+
+    .img-not-found {
+        height: 100%;
+    }
+
+    section .right,
+    section .left {
+        height: 100%;
+    }
+
+    .carousel-control-next-icon,
+    .carousel-control-prev-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    /* Change from here */
+
+    .sect-wrapper section {
+        height: 70vh;
+    }
+
+    .sect-description span.desc {
+        font-size: 15px;
+    }
+
+    .sect-description span.title {
+        font-size: 28px;
+        line-height: 1em;
+    }
+
+    .sect-description .order {
+        font-size: 18px;
+        padding: 3px;
+    }
+
+    .carousel-label {
+        font-size: 22px;
+    }
+}
+
+@media (max-width:500px) {
+    .leaf-container {
+        max-width: 300px;
+    }
+
+    .leaf1,
+    .leaf2 {
+        margin-bottom: 15px;
+    }
+
+    /* Change from here */
+    .sect-wrapper section {
+        height: 50vh;
+    }
+
+    .sect-description span.desc {
+        font-size: 10px;
+    }
+
+    .sect-description span.title {
+        font-size: 25px;
+        line-height: 1em;
+    }
+
+    .sect-description .order {
+        font-size: 15px;
+        padding: 3px;
+    }
+
+    .carousel-label {
+        font-size: 20px;
     }
 }
 
@@ -673,6 +787,10 @@ p.animate {
 
     to {
         width: 100%
+    }
+
+    100% {
+        white-space: normal;
     }
 }
 

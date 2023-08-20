@@ -12,7 +12,16 @@ let themeDefinitions = {
     }
 }
 
-let errorMessage = { 'colors': { 'NOT_FILLED': 'danger' }, 'messages': { 'NOT_FILLED': 'Preencha todos os campos' } }
+let errorMessage = {
+    'colors': {
+        'NOT_FILLED': 'danger',
+        'SUCCESS': 'success'
+    },
+    'messages': {
+        'NOT_FILLED': 'Preencha todos os campos',
+        'SUCCESS': 'Mensagem enviada com sucesso'
+    }
+}
 
 $(document).ready(async function () {
     let year = new Date().getFullYear()
@@ -60,6 +69,9 @@ $(document).ready(async function () {
 
 $("#theme-toggler").on('click', function () {
     event.preventDefault()
+    if ($(".navbar-collapse.show").length > 0) {
+        $(".navbar-toggler").click()
+    }
     changeTheme(theme)
 })
 
@@ -89,7 +101,12 @@ const navbar = document.querySelector("nav");
 
 function toggleNavbar() {
     const currentScrollPos = window.pageYOffset;
-    let scrollOffset = 300
+    let scrollOffset
+    if (window.innerWidth < 500) {
+        scrollOffset = 100
+    } else {
+        scrollOffset = 300
+    }
 
     if (prevScrollPos > currentScrollPos) {
         navbar.style.top = 0
@@ -153,7 +170,7 @@ function populateProducts({ users }) {
                     <div class="left">
                         <div class="sect-description">
                             <div>
-                                <span class="title"><span class="desc" style="color:white;">Loja de:</span> ${splitToTwo(i, " ")}</span>
+                                <span class="title"><!--<span class="desc" style="color:white;">Loja de:</span>--> ${splitToTwo(i, " ")}</span>
                                 <span class="desc prod-list">${arr.join(", ")}</span>
                             </div>
                             <div>
@@ -232,6 +249,9 @@ function populateProducts({ users }) {
     })
     $("[st]").unbind().on('click', function () {
         event.preventDefault();
+        if ($(".navbar-collapse.show").length > 0) {
+            $(".navbar-toggler").click()
+        }
         if ($(this).attr('st') == 'explore') {
             document.querySelector('[sect="explore"]').scrollIntoView();
         } else if ($(this).attr('st-star') !== false && $(this).attr('st-star') !== undefined) {
@@ -251,6 +271,9 @@ function populateProducts({ users }) {
     })
     $("#theme-toggler").unbind().on('click', function () {
         event.preventDefault()
+        if ($(".navbar-collapse.show").length > 0) {
+            $(".navbar-toggler").click()
+        }
         changeTheme(theme)
     })
     // carouselJSReload()
@@ -296,6 +319,8 @@ function populateCarousel({ users }) {
     }
     if (arr.length > 0) {
         $('#mainSlides').empty()
+        let slideCount = $('#slider').find('h2')
+        slideCount.text(slideCount.text() + ` (${arr.length})`)
         arr.forEach((item, _) => {
             $('#mainSlides').append(`
             <div>
@@ -307,7 +332,9 @@ function populateCarousel({ users }) {
         })
     } else {
         $('#mainSlides').empty()
-        for (let i = 1; i <= 3; i++) {
+        let slideCount = $('#slider').find('h2')
+        slideCount.text(slideCount.text() + ' (5)')
+        for (let i = 1; i <= 5; i++) {
             $('#mainSlides').append(`
                 <div>
                     <div class="slide">
@@ -398,6 +425,8 @@ function sendMessage() {
     message = message.split(" ").join("+")
     window.open(`https://wa.me/14910049542?text=${message}`, "_blank")
     event.preventDefault()
+    createAlert('.form-pre-wrapper', 'SUCCESS')
+    return true
 }
 
 function getDataFromForm() {
@@ -414,6 +443,11 @@ function getDataFromForm() {
             return false
         }
     }
+    $(form + "[name='name']").val('')
+    $(form + "[name='phone']").val('')
+    $(form + "[name='prod_name']").val('')
+    $(form + "[name='prod_desc']").val('')
+    $(form + "[name='prod_category']").val('')
     return params
 }
 

@@ -13,7 +13,7 @@ let slider = tns({
     responsive: {
         1440: {
             "slideBy": 2,
-            items: 3,
+            items: 4,
             gutter: 20
         },
         1152: {
@@ -26,9 +26,9 @@ let slider = tns({
             items: 2,
             gutter: 20
         },
-        540: {
+        580: {
             "slideBy": 1,
-            items: 1,
+            items: 2,
             gutter: 20
         },
         420: {

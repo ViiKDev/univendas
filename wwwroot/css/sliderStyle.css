@@ -2,7 +2,7 @@
 
 #slider,
 #slider2 {
-    height: 76vh;
+    height: 85vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -112,6 +112,10 @@
     font-size: 1.1rem;
 }
 
+.slide {
+    height: 100%;
+}
+
 @media(max-width:1440px) {
     .container-slider {
         width: 100%;
@@ -134,9 +138,33 @@
     display: flex;
 }
 
+@media (max-width:800px) {
+    #slider {
+        height: 70vh;
+    }
+
+    .slide-img {
+        width: 240px;
+        min-width: 240px;
+        height: 280px;
+    }
+}
+
 @media (max-width:600px) {
     .controller a {
         display: none;
+    }
+}
+
+@media (max-width:500px) {
+    #slider {
+        height: 60vh;
+    }
+
+    .slide-img {
+        height: 200px;
+        width: 350px;
+        max-width: 350px;
     }
 }
 
