@@ -167,6 +167,7 @@ section img {
     position: absolute;
     z-index: 1;
     transition: all .3s ease;
+    pointer-events: none;
 }
 
 .sect-description {
@@ -242,8 +243,8 @@ button.navbar-toggler:focus {
 .carousel-item img {
     height: 90vh;
     width: 100vw;
-    object-fit: cover;
-    opacity: .8;
+    object-fit: contain;
+    /* opacity: .8; */
 }
 
 .carousel {
@@ -290,6 +291,7 @@ button.navbar-toggler:focus {
 
 :not(#carousel) .carousel-item>img {
     width: 100%;
+    height: 100%;
 }
 
 .img-not-found {
@@ -421,6 +423,52 @@ nav span {
 
 #carousel {
     display: none;
+}
+
+.w2ui-popup {
+    width: 30vw !important;
+    height: 85vh !important;
+    transform: translate(3vw, -10vh);
+    border: 0 !important;
+    background-color: #000 !important;
+    box-shadow: 0 0 50vw #383838 !important;
+}
+
+.w2ui-msg-body {
+    background-color: rgb(22, 22, 22) !important;
+}
+
+.w2ui-msg-title {
+    border-bottom: 0 !important;
+    background-image: linear-gradient(#787878, #000000) !important;
+    color: rgb(190, 190, 190) !important;
+    cursor: default !important;
+}
+
+.w2ui-centered img {
+    width: 100%;
+    /* cursor: pointer; */
+}
+
+.carousel-inner {
+    display: flex;
+}
+
+.click-on-img.animate {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.9);
+    font-size: 1rem;
+    padding: 0 50px;
+    text-align: center;
+    animation: click-on-img 3s ease-in-out .3s forwards;
+    color: #fff;
+    text-decoration: none;
+    pointer-events: none;
 }
 
 .footer {
@@ -713,9 +761,6 @@ p.animate {
 }
 
 @media (max-width:500px) {
-    .leaf-container {
-        max-width: 300px;
-    }
 
     .leaf1,
     .leaf2 {
@@ -841,5 +886,30 @@ p.animate {
     50% {
         background-color: var(--detail-hover-color);
         transform: scale(1.05);
+    }
+}
+
+@keyframes click-on-img {
+
+    from {
+        font-size: 1rem;
+    }
+
+    to {
+        font-size: 1rem;
+        color: transparent;
+        background-color: transparent;
+    }
+
+    10% {
+        background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    40% {
+        font-size: 1.3rem;
+    }
+
+    80% {
+        color: transparent;
     }
 }

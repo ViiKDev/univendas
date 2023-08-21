@@ -128,23 +128,23 @@ function toggleNavbar() {
 window.addEventListener("scroll", toggleNavbar);
 
 const styleVars = document.documentElement.style
-let animationElements = document.querySelectorAll('.animate-on-scroll')
+// let animationElements = document.querySelectorAll('.animate-on-scroll')
 
-let observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animate')
-        }
-        // else { Add this to animate every time element appears on screen
-        // 	entry.target.classList.remove('animate')
-        // }
-    })
-})
+// let observer = new IntersectionObserver((entries) => {
+//     entries.forEach((entry) => {
+//         if (entry.isIntersecting) {
+//             entry.target.classList.add('animate')
+//         }
+//         // else { Add this to animate every time element appears on screen
+//         // 	entry.target.classList.remove('animate')
+//         // }
+//     })
+// })
 
-for (let i = 0; i < animationElements.length; i++) {
-    const el = animationElements[i];
-    observer.observe(el)
-}
+// for (let i = 0; i < animationElements.length; i++) {
+//     const el = animationElements[i];
+//     observer.observe(el)
+// }
 
 function populateProducts({ users }) {
     let count = 0
@@ -189,6 +189,7 @@ function populateProducts({ users }) {
                         const addDiv = (pn, i, d) => {
                             return `
                                         <div class="carousel-item${count2 == 0 ? " active" : ""}" prod-name="${pn}" prod-desc="${d}">
+                                            ${count == 0 && count2 == 0 ? "<a class='click-on-img animate-on-scroll'>Clique em uma imagem para ampliá-la</a>" : ""}
                                             <img src="./wwwroot/img/products/${i}" class="d-block" alt="Image">
                                         </div>
                                         `
@@ -276,6 +277,31 @@ function populateProducts({ users }) {
         }
         changeTheme(theme)
     })
+    $(".right").on('click', 'img', function (e) {
+        let title = $(e.delegateTarget).parent().children('.left').find('[disp-for="prod-name"]').text()
+        let desc = $(e.delegateTarget).parent().children('.left').find('[disp-for="prod-desc"]').text()
+        w2popup.open({
+            title: title,
+            body: '<div class="w2ui-centered"><img title="' + desc + '" src="' + $(this).attr('src') + '"></img></div>'
+        });
+    });
+    const animationElements = document.querySelectorAll('.animate-on-scroll')
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate')
+            }
+            // else { Add this to animate every time element appears on screen
+            // 	entry.target.classList.remove('animate')
+            // }
+        })
+    })
+
+    for (let i = 0; i < animationElements.length; i++) {
+        const el = animationElements[i];
+        observer.observe(el)
+    }
     // carouselJSReload()
 }
 
