@@ -233,6 +233,8 @@ function populateProducts({ users }) {
     $(".carousel button").parent().on('slide.bs.carousel', function () {
         if ($(this).attr('id') == "carousel") return
 
+        $('.click-on-img').remove()
+
         setTimeout(() => {
             $(this).parent().parent().find('[disp-for="prod-name"]').each((_, el) => {
                 if ($(this).find('.carousel-item-next').attr('prod-name') == undefined) {

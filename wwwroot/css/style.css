@@ -426,9 +426,9 @@ nav span {
 }
 
 .w2ui-popup {
-    width: 300px !important;
+    width: 400px !important;
     height: 600px !important;
-    transform: translate(0, 0);
+    transform: translate(10%, -15%);
     border: 0 !important;
     background-color: #000 !important;
     box-shadow: 0 0 50vw #383838 !important;
@@ -756,11 +756,11 @@ p.animate {
     }
 
     .carousel-label {
-        font-size: 22px;
+        font-size: 15px;
     }
 
     .click-on-img.animate {
-        font-size:0.5rem;
+        font-size: 0.5rem;
         animation: click-on-img-mobile 3s ease-in-out .3s forwards;
     }
 }
@@ -792,7 +792,14 @@ p.animate {
     }
 
     .carousel-label {
-        font-size: 20px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width:450px) {
+    .w2ui-popup {
+        width: 300px !important;
+        height: 450px !important;
     }
 }
 
