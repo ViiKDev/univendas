@@ -27,7 +27,7 @@ $(document).ready(async function () {
     let year = new Date().getFullYear()
     let disclaimer = getCookie('disclaimer')
     if (disclaimer == "") {
-        if (window.confirm("Ao entrar nesta página você está ciente de que só fazemos o anúncio dos produtos, não nos responsabilizamos pela qualidade de tal!")) {
+        if (window.confirm("Ao entrar nesta página você está ciente de que só fazemos o anúncio dos produtos, não nos responsabilizamos pela sua aquisição de tal!")) {
             setCookie('disclaimer', true)
         } else {
             if (history.length > 1) { history.back() } else {
