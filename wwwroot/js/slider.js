@@ -21,12 +21,7 @@ let slider = tns({
             items: 3,
             gutter: 20
         },
-        800: {
-            "slideBy": 1,
-            items: 2,
-            gutter: 20
-        },
-        580: {
+        650: {
             "slideBy": 1,
             items: 2,
             gutter: 20
@@ -37,3 +32,5 @@ let slider = tns({
         },
     }
 });
+
+slider.rebuild()

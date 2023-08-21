@@ -353,7 +353,7 @@ function populateCarousel({ users }) {
     document.body.appendChild(s);
     setTimeout(() => {
         document.body.appendChild(s2);
-    }, 500)
+    }, 1000)
 }
 
 $('.nav-link, .navbar-brand').on('click', function () {
