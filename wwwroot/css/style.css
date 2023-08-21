@@ -426,9 +426,9 @@ nav span {
 }
 
 .w2ui-popup {
-    width: 30vw !important;
-    height: 85vh !important;
-    transform: translate(3vw, -10vh);
+    width: 300px !important;
+    height: 600px !important;
+    transform: translate(0, 0);
     border: 0 !important;
     background-color: #000 !important;
     box-shadow: 0 0 50vw #383838 !important;
@@ -758,6 +758,11 @@ p.animate {
     .carousel-label {
         font-size: 22px;
     }
+
+    .click-on-img.animate {
+        font-size:0.5rem;
+        animation: click-on-img-mobile 3s ease-in-out .3s forwards;
+    }
 }
 
 @media (max-width:500px) {
@@ -907,6 +912,31 @@ p.animate {
 
     40% {
         font-size: 1.3rem;
+    }
+
+    80% {
+        color: transparent;
+    }
+}
+
+@keyframes click-on-img-mobile {
+
+    from {
+        font-size: 0.5rem;
+    }
+
+    to {
+        font-size: 0.5rem;
+        color: transparent;
+        background-color: transparent;
+    }
+
+    10% {
+        background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    40% {
+        font-size: 0.8rem;
     }
 
     80% {
