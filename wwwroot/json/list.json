@@ -15,6 +15,21 @@
             },
             "user_contact": "14996287545",
             "enabled": true
+        },
+        "Amanda Pavani": {
+            "products": {
+                "Trufas recheadas": {
+                    "product_description": "Trufinhas deliciosas de diversos sabores!",
+                    "product_imgs": [
+                        "ap1.jpeg",
+                        "ap2.jpeg"
+                    ],
+                    "product_category": "food",
+                    "starred": true
+                }
+            },
+            "user_contact": "14981920830",
+            "enabled": true
         }
     }
 }
