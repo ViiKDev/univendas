@@ -1,3 +1,20 @@
 ﻿{
-    "users": {}
+    "users": {
+        "Gabriela Dos Santos Guimarães": {
+            "products": {
+                "Brownies recheados": {
+                    "product_description": "Brownies caseiros super recheados",
+                    "product_imgs": [
+                        "gsg1.jpeg",
+                        "gsg2.jpeg",
+                        "gsg3.jpeg"
+                    ],
+                    "product_category": "food",
+                    "starred": true
+                }
+            },
+            "user_contact": "14996287545",
+            "enabled": true
+        }
+    }
 }
