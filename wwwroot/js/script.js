@@ -68,13 +68,15 @@ $(document).ready(async function () {
 
     let goToStore = getURLParameters()
     if (goToStore != "") {
-        try {
-            let owner = document.querySelector('[owner="' + decodeURI(goToStore) + '"')
-            if ($(owner).is('[starred]')) {
-                owner.scrollIntoView()
+        setTimeout(() => {
+            try {
+                let owner = document.querySelector('[owner="' + decodeURI(goToStore) + '"')
+                if ($(owner).is('[starred]')) {
+                    owner.scrollIntoView()
+                }
+            } catch (error) {
             }
-        } catch (error) {
-        }
+        }, 1200);
     }
 })
 
