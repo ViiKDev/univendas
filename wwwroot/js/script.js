@@ -65,6 +65,17 @@ $(document).ready(async function () {
 
     $("#theme-toggler i").addClass(theme == 'dark' ? 'fa-moon' : 'fa-sun')
     setThemeDefinitions(theme)
+
+    let goToStore = getURLParameters()
+    if (goToStore != "") {
+        try {
+            let owner = document.querySelector('[owner="' + decodeURI(goToStore) + '"')
+            if ($(owner).is('[starred]')) {
+                owner.scrollIntoView()
+            }
+        } catch (error) {
+        }
+    }
 })
 
 $("#theme-toggler").on('click', function () {
@@ -83,7 +94,7 @@ $("[st]").on('click', function () {
     event.preventDefault();
     if ($(this).attr('st') == 'explore') {
         document.querySelector('[sect="explore"]').scrollIntoView();
-    } else if ($(this).attr('st-start')) {
+    } else if ($(this).attr('st-star')) {
         document.querySelector('[owner="' + $(this).attr('st') + '"').scrollIntoView();
     }
     else {
@@ -154,6 +165,7 @@ function populateProducts({ users }) {
         let imgs = []
         let arr = []
         let prodImgs = {}
+        let starred = false
         if (products_count > 0) {
             for (j in products) {
                 prodImgs[j] = {}
@@ -163,10 +175,18 @@ function populateProducts({ users }) {
                 prodImgs[j]["desc"] = products[j].product_description
             }
         }
+        for (j in products) {
+            if (!starred) {
+                starred = products[j].starred
+            }
+            else {
+                break
+            }
+        }
         if (users[i].enabled) {
             $('.sect-wrapper').append(
                 $(
-                    `<section ${count == 0 ? "sect='explore'" : ""} owner='${splitToTwo(i, "-")}'>
+                    `<section ${count == 0 ? "sect='explore'" : ""} owner='${splitToTwo(i, "-")}' ${starred ? "starred" : ""}>
                     <div class="left">
                         <div class="sect-description">
                             <div>
@@ -257,7 +277,7 @@ function populateProducts({ users }) {
         }
         if ($(this).attr('st') == 'explore') {
             document.querySelector('[sect="explore"]').scrollIntoView();
-        } else if ($(this).attr('st-star') !== false && $(this).attr('st-star') !== undefined) {
+        } else if ($(this).is('[st-star]')) {
             document.querySelector('[owner="' + $(this).attr('st') + '"').scrollIntoView();
         }
         else {
@@ -353,7 +373,7 @@ function populateCarousel({ users }) {
             $('#mainSlides').append(`
             <div>
                 <div class="slide" st-star st="${splitToTwo(item.user, "-")}">
-                    <div class="slide-img" style="background-image: url('./wwwroot/img/products/${item.img}'), url('./wwwroot/img/img-not-found.png');"><a>${item.product_name}</a><a class="star-owner">${item.user}</a></div>
+                    <div class="slide-img" style="background-image: url('./wwwroot/img/products/${item.img}'), url('./wwwroot/img/img-not-found.png');"><a>${item.product_name}</a><a class="star-owner">${splitToTwo(item.user, " ")}</a></div>
                 </div>
             </div>
         `)
@@ -545,4 +565,12 @@ function setCookie(nome, valor, dias) {
     dias = new Date(diasms);
     expires = dias.toGMTString();
     document.cookie = escape(nome) + "=" + escape(valor) + "; expires=" + expires;
+}
+
+function getURLParameters() {
+    // let temp = window.location.href.replace(window.location.origin, "")
+    // temp = temp.replace(temp[0], "").replace("#&", "")
+    // console.log(temp)
+    let temp = window.location.hash.replace(window.location.hash[0], "")
+    return temp
 }
