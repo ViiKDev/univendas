@@ -10,11 +10,11 @@
                         "gsg3.jpeg"
                     ],
                     "product_category": "food",
-                    "starred": true
+                    "starred": false
                 }
             },
             "user_contact": "14996287545",
-            "enabled": true
+            "enabled": false
         },
         "Amanda Pavani": {
             "products": {
